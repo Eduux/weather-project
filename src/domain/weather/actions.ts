@@ -27,6 +27,10 @@ export async function getWeatherData(city: City): Promise<WeatherData> {
 
     const data = await response.json();
 
+    if (!data.main || !data.weather) {
+      throw new Error("Invalid weather data received");
+    }
+
     return {
       temperature: data.main.temp,
       humidity: data.main.humidity,
@@ -35,7 +39,6 @@ export async function getWeatherData(city: City): Promise<WeatherData> {
       icon: data.weather[0].icon,
     };
   } catch (error) {
-    console.error("Error fetching weather data:", error);
     throw error;
   }
 }

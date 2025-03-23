@@ -34,8 +34,7 @@ export function WeatherDashboard() {
 
       setWeatherData(newWeatherData);
       setLastUpdated(new Date());
-    } catch (err) {
-      console.error("Error fetching weather data:", err);
+    } catch {
       setError("Failed to fetch weather data. Please try again later.");
     } finally {
       setLoading(false);

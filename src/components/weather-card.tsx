@@ -32,14 +32,14 @@ export function WeatherCard({
   return (
     <Card className="overflow-hidden py-0 pb-6 border-none">
       <CardHeader className="bg-[#004983] py-2">
-        <CardTitle className="text-xl text-white">
+        <CardTitle className="text-xl text-white" data-testid={`city-${city}`}>
           {city}, {state}
         </CardTitle>
         <p className="text-sm text-white">{getCountryName(country)}</p>
       </CardHeader>
       <CardContent>
         {loading ? (
-          <div className="flex justify-center items-center h-40">
+          <div className="flex justify-center items-center h-40" role="status">
             <Loader2 className="h-8 w-8 animate-spin text-gray-400" />
           </div>
         ) : weatherData ? (
