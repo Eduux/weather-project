@@ -69,7 +69,7 @@ export function WeatherDashboard() {
         <div className="p-4 bg-red-100 text-red-700 rounded-md">{error}</div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {Object.entries(CITIES).map(([city, coordinates]) => (
           <WeatherCard
             key={city}
@@ -80,11 +80,11 @@ export function WeatherDashboard() {
             loading={loading && !weatherData[city]}
           />
         ))}
-      </div>
+      </section>
 
-      <div className="text-xs text-white text-center mt-8">
+      <footer className="text-xs text-white text-center mt-8">
         <p>Data automatically refreshes every 10 minutes</p>
-      </div>
+      </footer>
     </div>
   );
 }
